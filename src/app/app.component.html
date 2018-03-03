@@ -1,0 +1,47 @@
+<section class="form-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="text-center">Login</h1>
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+          <h4 class="text-center">Using</h4>
+          <div class="icons-holder">
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-windows"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </div>
+          <h4 class="text-center text-line"><span>or</span></h4>
+          <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+            <div class="alert-danger">
+              <ul>
+                <li *ngIf="!email.valid && email.touched">E-mail address is required</li>
+                <li *ngIf="!password.valid && password.touched">Password is required</li>
+              </ul>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail Address</label>
+              <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" class="form-control" ngModel name="password" password required #password="ngModel">
+            </div>
+            <div class="remember">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="remember" name="remember" value="remember">Remember me
+                </label>
+              </div>
+              <a href="#">Forgot my password</a>
+            </div>
+          </div>
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Log in</button>
+        </form>
+        <p class="new-user-register text-center">new user? <a href="#">register now for free</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
