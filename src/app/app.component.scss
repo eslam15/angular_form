@@ -96,16 +96,6 @@ html, body {
     .alert-danger {
       border-left: 10px solid #cd0000;
       margin-bottom: 20px;
-      ul {
-        margin: 0;
-        li {
-          padding: 10px 0 0 0;
-          color: #cd0000;
-          &:last-child {
-            padding: 0 0 10px 0;
-          }
-        }
-      }
     }
     label {
       color: #575656;

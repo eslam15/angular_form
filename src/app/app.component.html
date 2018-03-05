@@ -14,19 +14,30 @@
           </div>
           <h4 class="text-center text-line"><span>or</span></h4>
           <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
-            <div class="alert-danger">
-              <ul>
-                <li *ngIf="!email.valid && email.touched">E-mail address is required</li>
-                <li *ngIf="!password.valid && password.touched">Password is required</li>
-              </ul>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            Email address must be written in correct format.
+            <div *ngIf="email.errors.required">
+              Email address is required.
             </div>
+            <div *ngIf="email.errors.minlength">
+              Email address must be at least 10 characters long.
+            </div>
+          </div>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              Passwrod is required.
+            </div>
+            <div *ngIf="password.errors.pattern">
+              Password must has at least 1 uppercase letter & at leaset 1 numbers & at least 1 special character and at least 8 characters long.
+            </div>
+          </div>
             <div class="form-group">
               <label for="email">E-mail Address</label>
-              <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+              <input type="email" id="email" class="form-control" ngModel minlength="10" name="email" required email #email="ngModel">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" id="password" class="form-control" ngModel name="password" password required #password="ngModel">
+              <input type="password" id="password" class="form-control" ngModel name="password" password required #password="ngModel" [pattern]="passPattern">
             </div>
             <div class="remember">
               <div class="checkbox">
