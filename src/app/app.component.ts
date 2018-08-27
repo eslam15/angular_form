@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('f') signupForm: NgForm;
+  @ViewChild('loginForm') signupForm: NgForm;
 
   submitted = false;
   passPattern = "(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&_*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
